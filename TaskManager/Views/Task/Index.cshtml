@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TaskManager.Models.UserTask>
+
+@{
+    ViewData["Title"] = "My Tasks";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-4">My Tasks</h1>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-lg"></i> New Task</a>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">No tasks yet!</h4>
+            <p>You don't have any tasks. Click the "New Task" button to create your first task.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 @(item.IsComplete ? "border-success" : "")">
+                        <div class="card-header d-flex justify-content-between align-items-center @(item.IsComplete ? "bg-success text-white" : "")">
+                            <h5 class="card-title mb-0 text-truncate">@item.Title</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary @(item.IsComplete ? "btn-outline-light" : "")" type="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a></li>
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil"></i> Edit</a></li>
+                                    <li><a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-action="ToggleComplete" asp-route-id="@item.Id">
+                                            @if (item.IsComplete)
+                                            {
+                                                <i class="bi bi-x-circle"></i> <span>Mark incomplete</span>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-check-circle"></i> <span>Mark complete</span>
+                                            }
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@(string.IsNullOrEmpty(item.Description) ? "No description" : item.Description)</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            @if (item.DueDate.HasValue)
+                            {
+                                <small class="text-muted">Due: @item.DueDate.Value.ToString("MMMM d, yyyy")</small>
+                            }
+                            else
+                            {
+                                <small class="text-muted">No due date</small>
+                            }
+                            <small class="text-muted d-block">Created: @item.CreatedDate.ToString("MMMM d, yyyy")</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

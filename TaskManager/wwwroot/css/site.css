@@ -1,0 +1,125 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* Card hover effect */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+/* Task status badges */
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.75em;
+}
+
+/* Custom button styles */
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+    .btn-primary:hover {
+        background-color: #303f9f;
+        border-color: #303f9f;
+    }
+
+/* Navbar styling */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #f8f9fa;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+/* Form styling */
+.form-control:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25);
+}
+
+/* Card status indicators */
+.card-header.bg-success {
+    background-color: #4caf50 !important;
+}
+
+/* Typography */
+h1.display-4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+/* Task list card grid layout improvements */
+@media (min-width: 992px) {
+    .row-cols-lg-3 > .col {
+        flex: 0 0 auto;
+        width: 33.33333%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .row-cols-md-2 > .col {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+/* Custom animation for completion toggle */
+@keyframes completedPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
+
+.task-complete-animation {
+    animation: completedPulse 2s 1;
+}

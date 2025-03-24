@@ -1,0 +1,68 @@
+﻿@model TaskManager.Models.UserTask
+
+@{
+    ViewData["Title"] = "Task Details";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-4">Task Details</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center @(Model.IsComplete ? "bg-success text-white" : "")">
+                    <h5 class="card-title mb-0">@Model.Title</h5>
+                    <span class="badge @(Model.IsComplete ? "bg-light text-dark" : "bg-warning")">
+                        @(Model.IsComplete ? "Complete" : "Pending")
+                    </span>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+                    <p class="card-text">
+                        @if (string.IsNullOrEmpty(Model.Description))
+                        {
+                            <em>No description provided</em>
+                        }
+                        else
+                        {
+                            @Model.Description
+                        }
+                    </p>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6 class="card-subtitle mb-2 text-muted">Created Date</h6>
+                            <p>@Model.CreatedDate.ToString("MMMM d, yyyy")</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="card-subtitle mb-2 text-muted">Due Date</h6>
+                            <p>
+                                @if (Model.DueDate.HasValue)
+                                {
+                                    @Model.DueDate.Value.ToString("MMMM d, yyyy")
+                                }
+                                else
+                                {
+                                    <em>Not specified</em>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger ms-2">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
