@@ -102,3 +102,39 @@ The application does not use an API; it directly interacts with the database usi
 Uses GET for retrieving data and POST for modifying data to ensure proper HTTP request handling.
 
 The https_port is explicitly set to 7132 in appsettings.json.
+
+
+
+
+Screenshots 
+
+
+![c1](https://github.com/user-attachments/assets/933b435b-b672-4b97-8ad0-cec045302d26)
+
+![c2](https://github.com/user-attachments/assets/1b42fc40-63b5-4229-82bd-d1e41ea6e47d)
+
+![c3](https://github.com/user-attachments/assets/0f6d9735-88b3-48e4-8126-c94d238ff68f)
+
+![c4](https://github.com/user-attachments/assets/79122e14-4e87-4cde-97f8-d2eb47a615bf)
+
+![c5](https://github.com/user-attachments/assets/b724d971-3b08-458e-92e3-91b5e1cd2235)
+
+![c6](https://github.com/user-attachments/assets/d7390949-b97d-4458-9ae3-3fcb46b1e1c7)
+
+![c7](https://github.com/user-attachments/assets/00b7433c-7fda-4a41-ab80-083a4b62a10f)
+![c8](https://github.com/user-attachments/assets/af327bc9-f3bc-45c2-a3ee-a0e162b2905c)
+
+![c9](https://github.com/user-attachments/assets/84e4abb0-6a0e-46e8-b9f0-f60d50aea8fd)
+
+![c10](https://github.com/user-attachments/assets/b7d91847-feeb-4f5c-accc-40c2f0e4e45b)
+
+
+
+
+
+
+
+
+
+
+
